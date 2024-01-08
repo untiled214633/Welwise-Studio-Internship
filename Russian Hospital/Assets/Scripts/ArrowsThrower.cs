@@ -5,22 +5,44 @@ public class ArrowsThrower : MonoBehaviour
     [SerializeField] private AnimationCurve _arrowFlyingYTrajectory;
     [SerializeField] private float _arrowFlyingDuration;
 
+    //test field
+    private float _t = 0;
+    private float _experiedSeconds = 0;
+    private Vector3 _startPositon;
+    private Vector3 _targetPostion;
+    private bool _canMove;
 
 
+
+
+    private void Update()
+    {
+        if (_canMove) Move();
+    }
 
 
     public void MoveArrow(Vector3 targetPostion)
     {
-        float t = 0;
-        float experiedSeconds = 0;
+        _startPositon = transform.position;
+        _targetPostion = targetPostion;
+        _canMove = true;
+    }
 
-        t = experiedSeconds / _arrowFlyingDuration;
-        experiedSeconds += Time.deltaTime;
+    private void Move()
+    {
+        _t = _experiedSeconds / _arrowFlyingDuration;
+        if (_t > 1)
+        {
+            _t = 1;
+            _canMove = false;
+        }
 
 
+        Vector3 movePostion = Vector3.Lerp(_startPositon, _targetPostion, _t);
+        movePostion += new Vector3(0, _arrowFlyingYTrajectory.Evaluate(_t), 0);
 
-        Vector3 movePostion = Vector3.Lerp(transform.position, targetPostion, t);
+        transform.position = movePostion;
 
-        movePostion += new Vector3(0, _arrowFlyingYTrajectory.Evaluate(t), 0);
+        _experiedSeconds += Time.deltaTime;
     }
 }

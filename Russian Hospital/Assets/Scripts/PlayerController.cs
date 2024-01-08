@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private Camera _mainCamera;
-    [SerializeField] private GameObject _ball;
+    [SerializeField] private ArrowsThrower _arrow;
 
 
 
@@ -22,7 +22,7 @@ public class PlayerController : MonoBehaviour
             Ray ray = _mainCamera.ScreenPointToRay(Input.mousePosition);
             var raycast = Physics.Raycast(ray, out RaycastHit hitInfo);
 
-            _ball.transform.position = hitInfo.point;
+            _arrow.MoveArrow(hitInfo.point);
         }
     }
 }

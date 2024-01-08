@@ -660,8 +660,9 @@ GameObject:
   - component: {fileID: 261781243}
   - component: {fileID: 261781242}
   - component: {fileID: 261781241}
+  - component: {fileID: 261781245}
   m_Layer: 0
-  m_Name: ball
+  m_Name: Arrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -747,12 +748,94 @@ Transform:
   m_GameObject: {fileID: 261781240}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.5, z: 0}
+  m_LocalPosition: {x: 1.25, y: 2, z: -2}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &261781245
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 261781240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d0f981295b83654b9077b697bdb3e8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _arrowFlyingYTrajectory:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: -0.0000094024
+      value: -0.000017322716
+      inSlope: 5.974275
+      outSlope: 5.974275
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.16802338
+      value: 1.0038568
+      inSlope: 0.07367159
+      outSlope: 0.07367159
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.14561522
+    - serializedVersion: 3
+      time: 0.26609135
+      value: 0.006892562
+      inSlope: -0.054465353
+      outSlope: -0.054465353
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.25577858
+    - serializedVersion: 3
+      time: 0.506568
+      value: 0.9953849
+      inSlope: -1.4881494
+      outSlope: -1.4881494
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.17637314
+    - serializedVersion: 3
+      time: 0.61014
+      value: 0.006169796
+      inSlope: -0.00868281
+      outSlope: -0.00868281
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.39579973
+    - serializedVersion: 3
+      time: 0.83575314
+      value: 1.0031753
+      inSlope: -0.017660279
+      outSlope: -0.017660279
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: -6.107729
+      outSlope: -6.107729
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  _arrowFlyingDuration: 0.7
 --- !u!1 &291044155
 GameObject:
   m_ObjectHideFlags: 0
@@ -8268,7 +8351,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _mainCamera: {fileID: 963194227}
-  _ball: {fileID: 261781240}
+  _arrow: {fileID: 261781245}
 --- !u!114 &1701951531
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10056,6 +10139,6 @@ SceneRoots:
   - {fileID: 705507995}
   - {fileID: 1031152947}
   - {fileID: 1605372645}
-  - {fileID: 261781244}
   - {fileID: 971104494}
   - {fileID: 485112402}
+  - {fileID: 261781244}
