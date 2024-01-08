@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -17,7 +18,10 @@ public class TargetSpawner : MonoBehaviour
         {
             SpawnTarget();
         }
+
+        StartCoroutine(IFrequencyTargetSpawner());
     }
+
 
     private void SpawnTarget()
     {
@@ -33,5 +37,15 @@ public class TargetSpawner : MonoBehaviour
         }
         _indexesOfUsedTargets.Add(targetIndex);
         _targets[targetIndex].SetActive(true);
+    }
+
+
+    private IEnumerator IFrequencyTargetSpawner()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(_targetsSpawnFrequency);
+            SpawnTarget();
+        }
     }
 }

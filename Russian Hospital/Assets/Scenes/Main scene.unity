@@ -1651,7 +1651,7 @@ MonoBehaviour:
   - {fileID: 1658903051}
   - {fileID: 1920090880}
   _maxTargetsCount: 5
-  _targetsSpawnFrequency: 0
+  _targetsSpawnFrequency: 2
 --- !u!1 &497282581
 GameObject:
   m_ObjectHideFlags: 0
