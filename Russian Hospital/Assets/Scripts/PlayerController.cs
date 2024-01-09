@@ -4,7 +4,8 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private Camera _mainCamera;
-    [SerializeField] private ArrowsThrower _arrow;
+    [SerializeField] private ArrowsThrower _arrowThrower;
+    [SerializeField] private Transform _arrowSpawnPointTransform;
 
 
 
@@ -20,9 +21,9 @@ public class PlayerController : MonoBehaviour
         if (callbackContext.phase == InputActionPhase.Performed)
         {
             Ray ray = _mainCamera.ScreenPointToRay(Input.mousePosition);
-            var raycast = Physics.Raycast(ray, out RaycastHit hitInfo);
+            Physics.Raycast(ray, out RaycastHit hitInfo);
 
-            _arrow.MoveArrow(hitInfo.point);
+            _arrowThrower.ThrowArrow(_arrowSpawnPointTransform.position, hitInfo.point);
         }
     }
 }
