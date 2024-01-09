@@ -14,8 +14,6 @@ public class Arrow : MonoBehaviour
     private Vector3 _targetPostion;
     private bool _canMove;
 
-    private Vector2 _lastCurvePoint;
-
 
 
 
@@ -29,8 +27,20 @@ public class Arrow : MonoBehaviour
     {
         _startPositon = transform.position;
         _targetPostion = targetPostion;
+        RotateToTarget();
+
         _canMove = true;
     }
+
+
+    private void RotateToTarget()
+    {
+        Vector3 delta = _targetPostion - _startPositon;
+        float yAngel = Mathf.Atan2(delta.normalized.x, delta.normalized.z) * Mathf.Rad2Deg;
+
+        transform.rotation = Quaternion.Euler(0, yAngel, 0);
+    }
+
 
     private void Move()
     {
@@ -45,16 +55,6 @@ public class Arrow : MonoBehaviour
 
         Vector3 movePostion = Vector3.Lerp(_startPositon, _targetPostion, _t);
         movePostion += new Vector3(0, _arrowFlyingYTrajectory.Evaluate(_t), 0);
-
-
-        /*Vector2 currentCurvePoint = new Vector2(_t, _arrowFlyingYTrajectory.Evaluate(_t));
-        Vector2 delta = currentCurvePoint - _lastCurvePoint;
-
-        float angel = Mathf.Atan2(delta.y, delta.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(0, 0, angel);
-        _lastCurvePoint = currentCurvePoint;*/
-
-
 
         transform.position = movePostion;
 
