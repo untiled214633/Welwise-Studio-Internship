@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class TargetSpawner : MonoBehaviour
 {
+    [SerializeField] private PlayerController _controller;
+
     [SerializeField] private GameObject[] _targets;
     [SerializeField] private int _maxTargetsCount;
     [SerializeField] private float _targetsSpawnFrequency;
@@ -37,6 +39,26 @@ public class TargetSpawner : MonoBehaviour
         }
         _indexesOfUsedTargets.Add(targetIndex);
         _targets[targetIndex].SetActive(true);
+    }
+
+
+    public void RemoveUsingTarget(GameObject target)
+    {
+        int index = 0;
+
+        for (int i = 0; i < _targets.Length; i++)
+        {
+            if (target == _targets[i])
+            {
+                index = i;
+                break;
+            }
+        }
+
+        _indexesOfUsedTargets.Remove(index);
+        _targets[index].SetActive(false);
+
+        _controller.AddShell();
     }
 
 
