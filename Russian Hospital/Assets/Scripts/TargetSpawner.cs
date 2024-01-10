@@ -7,7 +7,7 @@ public class TargetSpawner : MonoBehaviour
     [SerializeField] private PlayerController _controller;
 
     [SerializeField] private GameObject[] _targets;
-    [SerializeField] private int _maxTargetsCount;
+    [SerializeField] private int _startTargetsCount;
     [SerializeField] private float _targetsSpawnFrequency;
     private List<int> _indexesOfUsedTargets = new List<int>();
 
@@ -16,7 +16,7 @@ public class TargetSpawner : MonoBehaviour
 
     private void Start()
     {
-        for (int i = 0; i < _maxTargetsCount; i++)
+        for (int i = 0; i < _startTargetsCount; i++)
         {
             SpawnTarget();
         }

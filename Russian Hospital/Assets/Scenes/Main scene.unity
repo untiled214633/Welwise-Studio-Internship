@@ -1578,7 +1578,7 @@ MonoBehaviour:
   - {fileID: 176613740}
   - {fileID: 805027987}
   - {fileID: 1120542466}
-  _maxTargetsCount: 5
+  _startTargetsCount: 5
   _targetsSpawnFrequency: 2
 --- !u!1001 &614634773
 PrefabInstance:
