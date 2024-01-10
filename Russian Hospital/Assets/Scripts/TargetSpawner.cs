@@ -4,12 +4,15 @@ using UnityEngine;
 
 public class TargetSpawner : MonoBehaviour
 {
-    [SerializeField] private PlayerController _controller;
-
+    [Header("Spawner Settings")]
     [SerializeField] private GameObject[] _targets;
+    [Space(5)]
     [SerializeField] private int _startTargetsCount;
     [SerializeField] private float _targetsSpawnFrequency;
     private List<int> _indexesOfUsedTargets = new List<int>();
+
+    [Header("Additional Components")]
+    [SerializeField] private PlayerController _controller;
 
 
 

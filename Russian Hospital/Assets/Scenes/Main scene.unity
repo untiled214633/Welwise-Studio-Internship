@@ -1516,7 +1516,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9c22047fbb97434fb322b9f19c0a102, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _controller: {fileID: 963194232}
   _targets:
   - {fileID: 330787576}
   - {fileID: 852244926}
@@ -1580,6 +1579,7 @@ MonoBehaviour:
   - {fileID: 1120542466}
   _startTargetsCount: 5
   _targetsSpawnFrequency: 2
+  _controller: {fileID: 963194232}
 --- !u!1001 &614634773
 PrefabInstance:
   m_ObjectHideFlags: 0

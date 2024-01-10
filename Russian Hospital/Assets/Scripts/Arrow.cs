@@ -2,8 +2,10 @@ using UnityEngine;
 
 public class Arrow : MonoBehaviour
 {
+    [Header("Internal Components")]
     [SerializeField] private Rigidbody _rigidbody;
 
+    [Header("Flying Parameters")]
     [SerializeField] private AnimationCurve _arrowFlyingYTrajectory;
     [SerializeField] private float _arrowFlyingDuration;
 

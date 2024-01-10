@@ -3,7 +3,10 @@ using UnityEngine;
 
 public class UIShellController : MonoBehaviour
 {
+    [Header("Additional Components")]
     [SerializeField] private PlayerController _controller;
+
+    [Header("Internal Components")]
     [SerializeField] private GameObject _uIShellPrefab;
     private List<GameObject> _uIShells = new List<GameObject>();
 

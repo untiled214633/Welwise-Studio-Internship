@@ -3,10 +3,14 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
+
     [SerializeField] private Camera _mainCamera;
+    [Space(5)]
     [SerializeField] private UIShellController _shellController;
+    [Space(5)]
     [SerializeField] private ArrowsThrower _arrowThrower;
     [SerializeField] private Transform _arrowSpawnPointTransform;
+    [Space(5)]
     [SerializeField] private int _maxShellsCount = 5;
     public int MaxShellsCount => _maxShellsCount;
     private int _shellsCount;
@@ -39,7 +43,7 @@ public class PlayerController : MonoBehaviour
     public void AddShell()
     {
         _shellsCount++;
-        Mathf.Clamp(_shellsCount, 0, _maxShellsCount);
+        _shellsCount = Mathf.Clamp(_shellsCount, 0, _maxShellsCount);
 
         _shellController.AddShell(_shellsCount);
     }
@@ -50,6 +54,6 @@ public class PlayerController : MonoBehaviour
         _shellController.RemoveShell(_shellsCount);
 
         _shellsCount--;
-        Mathf.Clamp(_shellsCount, 0, _maxShellsCount);
+        _shellsCount = Mathf.Clamp(_shellsCount, 0, _maxShellsCount);
     }
 }
