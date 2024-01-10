@@ -30,8 +30,9 @@ public class TargetSpawner : MonoBehaviour
 
     private void SpawnTarget()
     {
-        int targetIndex = Random.Range(0, _targets.Length);
+        if (_indexesOfUsedTargets.Count == _targets.Length) return;
 
+        int targetIndex = Random.Range(0, _targets.Length);
         foreach (var index in _indexesOfUsedTargets)
         {
             if (targetIndex == index)
